@@ -100,18 +100,6 @@ dist
 tmp/
 temp/
 
-# Firebase
-.firebase/
-firebase-debug.log
-firebase-debug.*.log
-
-# Firebase Functions
-functions/node_modules/
-functions/lib/
-functions/.runtimeconfig.json
-
-# Firebase Hosting
-.firebase/
 
 # Vite
 vite.config.js.timestamp-*
@@ -268,6 +256,3 @@ coverage/
 !tailwind.config.js
 !vite.config.ts
 !postcss.config.js
-!firebase.json
-!firestore.rules
-!firestore.indexes.json
