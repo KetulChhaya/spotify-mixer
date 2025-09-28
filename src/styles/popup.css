@@ -1,0 +1,42 @@
+/* Popup-specific styles */
+.popup-container {
+  width: 800px;
+  height: 600px;
+  min-height: 600px;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  height: 100%;
+}
+
+.deck-panel {
+  @apply bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg relative overflow-hidden border border-white/20;
+}
+
+.crossfader-panel {
+  @apply flex flex-col items-center justify-center space-y-4;
+}
+
+.track-info {
+  @apply absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent;
+}
+
+.waveform-visualizer {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .popup-container {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .deck-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr;
+  }
+}

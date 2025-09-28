@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Modern glass morphism */
+  .glass {
+    @apply bg-white/[0.02] backdrop-blur-xl border border-white/[0.05];
+  }
+  
+  .glass-subtle {
+    @apply bg-white/[0.01] backdrop-blur-lg border border-white/[0.03];
+  }
+  
+  /* Card components */
+  .card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+  
+  .card-deck {
+    @apply card bg-card/50 backdrop-blur-sm border-white/[0.08] shadow-lg;
+  }
+  
+  /* Modern button styles */
+  .btn-deck-a {
+    @apply bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25 transition-all duration-200;
+  }
+  
+  .btn-deck-b {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg hover:shadow-blue-500/25 transition-all duration-200;
+  }
+  
+  /* Vinyl record effect */
+  .vinyl-record {
+    @apply relative rounded-full bg-gradient-to-br shadow-xl border-4 border-white/10;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.9) 80%);
+  }
+  
+  .vinyl-record::before {
+    content: '';
+    @apply absolute inset-4 rounded-full border border-white/5;
+  }
+  
+  .vinyl-record::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2 w-4 h-4 bg-black rounded-full transform -translate-x-1/2 -translate-y-1/2 border border-white/10;
+  }
+  
+  /* Smooth animations */
+  .animate-vinyl {
+    animation: vinyl-spin 2s linear infinite;
+  }
+  
+  @keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Scratch effect */
+  .vinyl-scratch {
+    animation: vinyl-scratch 0.2s ease-out;
+  }
+  
+  @keyframes vinyl-scratch {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.02) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+  
+  /* Hover effects */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+  
+  /* Enhanced seek slider */
+  .seek-slider [data-orientation="horizontal"] {
+    @apply relative h-3 w-full cursor-pointer;
+  }
+  
+  .seek-slider [data-orientation="horizontal"] [data-slider-track] {
+    @apply relative h-full w-full grow overflow-hidden rounded-full bg-white/10;
+  }
+  
+  .seek-slider [data-orientation="horizontal"] [data-slider-range] {
+    @apply absolute h-full bg-gradient-to-r from-emerald-500 to-emerald-400;
+  }
+  
+  .seek-slider [data-orientation="horizontal"] [data-slider-thumb] {
+    @apply block h-5 w-5 rounded-full border-2 border-emerald-500 bg-white shadow-lg transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2;
+  }
+  
+  /* VirtualDJ inspired effects */
+  .deck-glow {
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));
+  }
+  
+  .deck-glow-blue {
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  }
+  
+  /* Custom scrollbar - minimal and elegant */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Typography improvements */
+  .text-gradient-deck-a {
+    @apply bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-deck-b {
+    @apply bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent;
+  }
+  
+  /* Subtle hover effects */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg;
+  }
+  
+  .hover-glow-deck-a {
+    @apply transition-shadow duration-300 hover:shadow-emerald-500/20;
+  }
+  
+  .hover-glow-deck-b {
+    @apply transition-shadow duration-300 hover:shadow-blue-500/20;
+  }
+  
+  /* Focus states for accessibility */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
